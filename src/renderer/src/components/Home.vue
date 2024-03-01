@@ -1,8 +1,6 @@
 <template>
   <v-layout>
- 
     <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition">
-   
       <v-card>
         <v-toolbar dark color="primary">
           <v-btn icon dark @click="dialog = false">
@@ -104,8 +102,6 @@
         </v-list>
       </v-container>
     </v-main>
-
-   
   </v-layout>
 </template>
 <script setup lang="ts">
@@ -127,7 +123,6 @@ noble.on('stateChange', (state) => {
 
 noble.on('discover', (peripheral) => {
   console.log(peripheral)
-
   let bt = bleDeviceList.value.find((x) => x.address == peripheral.address)
   if (bt == null) {
     bleDeviceList.value.push(peripheral)
